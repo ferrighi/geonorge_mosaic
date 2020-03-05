@@ -1,0 +1,43 @@
+.block-geonorge-mosaic .map {
+  width: 100%;
+  height: 50em;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.block-geonorge-mosaic .map:-moz-full-screen {
+  height: 100%;
+}
+.block-geonorge-mosaic .map:-webkit-full-screen {
+  height: 100%;
+}
+.block-geonorge-mosaic .map:-ms-fullscreen {
+  height: 100%;
+}
+.block-geonorge-mosaic .map:fullscreen {
+  height: 100%;
+}
+
+.block-geonorge-mosaic .ol-full-screen {
+     right: .5em;
+     bottom: auto;
+     top: .5em;
+     left: auto;
+}
+
+.block-geonorge-mosaic .ol-mouse-position {
+   top: 95%;
+   left: 2%;
+   color: black;
+   font-weight: bold;
+   text-shadow: 1px 1px 1px black;
+}
+
+.block-geonorge-mosaic .ol-overlay-container {
+  position: unset !important;
+}
+
+.block-geonorge-mosaic .ol-viewport {
+  border: 1px #bbb solid;
+}

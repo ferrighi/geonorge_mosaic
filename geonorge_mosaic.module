@@ -1,0 +1,71 @@
+<?php
+
+function geonorge_mosaic_init(){
+}
+
+function geonorge_mosaic_menu() {
+  $items = array();
+
+  // create landing page administrative page
+  $items['admin/config/services/geonorge-mosaic'] = array(
+    'title' => 'Geonorge Mosaic configuration',
+    'description' => 'Configuration for the Geonorge mosaic map',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('geonorge_mosaic_admin'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'geonorge_mosaic.admin.inc',
+  );
+
+  return $items;
+}
+
+function geonorge_mosaic_block_info() {
+  $blocks = array();
+  $blocks['geonorge_mosaic_block'] = array(
+    'info' => t('Geonorge Mosaic Block'),
+  );
+  return $blocks;
+}
+
+function geonorge_mosaic_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+    case 'geonorge_mosaic_block':
+     $block['content'] = geonorge_mosaic_main_content(); // set the content of the block to our geonorge_mosaic_main_content
+     break;
+  }
+  return $block;
+}
+
+
+function geonorge_mosaic_main_content(){
+  
+  $mpath = drupal_get_path('module', 'geonorge_mosaic');
+  $ol5_path = libraries_get_path('openlayers5');
+  $jq_path = drupal_get_path('module', 'jquery_update');
+
+  drupal_add_css($mpath . '/css/geonorge_mosaic_style.css');
+  drupal_add_css($ol5_path . '/css/ol.css');
+
+  drupal_add_js($ol5_path . '/build/ol.js');
+  drupal_add_js('https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js', 'external');
+
+
+  //get configuration parameters
+  $zoom = variable_get('zoom');
+  $center_lat = variable_get('center_lat');
+  $center_lon = variable_get('center_lon');
+
+  drupal_add_js(array('zoom' => $zoom, 
+                      'center_lat' => $center_lat, 
+                      'center_lon' => $center_lon
+                      ), 'setting');
+
+return '
+<div id="map" class="map" >
+   <script type="text/javascript" src="/'.$mpath.'/js/geonorge_mosaic.js"></script>
+</div>
+
+';
+}
+?>
