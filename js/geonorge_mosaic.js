@@ -13,6 +13,10 @@ var zoom = Drupal.settings.zoom;
 var center_lat = Drupal.settings.center_lat;
 var center_lon = Drupal.settings.center_lon;
 
+console.log(zoom);
+console.log(center_lat);
+console.log(center_lon);
+
 var layer = {};
 
 // Base layer WMS
@@ -46,6 +50,35 @@ layer['gn_mosaic']  = new ol.layer.Tile({
    })
 });
 
+layer['euro']  = new ol.layer.Tile({
+   title: 'Europaveg',
+   visible: false,
+   source: new ol.source.TileWMS({
+       url: 'https://openwms.statkart.no/skwms1/wms.vegnett?',
+       params: {'LAYERS': 'europaveg', 'TRANSPARENT':'true', 'VERSION':'1.3.0','FORMAT':'image/png', 'CRS':prj},
+       //crossOrigin: 'anonymous'
+   })
+});
+
+layer['fylk']  = new ol.layer.Tile({
+   title: 'Fylkesveg',
+   source: new ol.source.TileWMS({
+       url: 'https://openwms.statkart.no/skwms1/wms.vegnett?',
+       params: {'LAYERS': 'fylkesveg', 'TRANSPARENT':'true', 'VERSION':'1.3.0','FORMAT':'image/png', 'CRS':prj},
+       //crossOrigin: 'anonymous'
+   })
+});
+
+layer['riks']  = new ol.layer.Tile({
+   title: 'Riksveg',
+   source: new ol.source.TileWMS({
+       url: 'https://openwms.statkart.no/skwms1/wms.vegnett?',
+       params: {'LAYERS': 'riksveg', 'TRANSPARENT':'true', 'VERSION':'1.3.0','FORMAT':'image/png', 'CRS':prj},
+       //crossOrigin: 'anonymous'
+   })
+});
+
+
 // build up the map 
 var centerLonLat1 = [center_lon, center_lat];
 var centerTrans1 = ol.proj.transform(centerLonLat1, "EPSG:4326",  prj);
@@ -56,7 +89,10 @@ var map = new ol.Map({
    ]),
    target: 'map',
    layers: [ layer['base'],
-             layer['gn_mosaic']
+             layer['gn_mosaic'],
+             layer['euro'],
+             layer['fylk'],
+             layer['riks']
            ],
    view: new ol.View({
                  zoom: zoom, 
@@ -75,4 +111,8 @@ var mousePositionControl = new ol.control.MousePosition({
    projection : 'EPSG:4326',
 });
 map.addControl(mousePositionControl);
+
+var lswitcher = new ol.control.LayerSwitcher({});
+map.addControl(lswitcher);
+lswitcher.showPanel();
 

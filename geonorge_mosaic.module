@@ -42,13 +42,17 @@ function geonorge_mosaic_main_content(){
   
   $mpath = drupal_get_path('module', 'geonorge_mosaic');
   $ol5_path = libraries_get_path('openlayers5');
+  $ols5_path = libraries_get_path('ol3-layerswitcher');
   $jq_path = drupal_get_path('module', 'jquery_update');
 
   drupal_add_css($mpath . '/css/geonorge_mosaic_style.css');
   drupal_add_css($ol5_path . '/css/ol.css');
+  drupal_add_css($ols5_path . '/src/ol3-layerswitcher.css');
+
 
   drupal_add_js($ol5_path . '/build/ol.js');
   drupal_add_js('https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js', 'external');
+  drupal_add_js($ols5_path . '/src/ol3-layerswitcher.js');
 
 
   //get configuration parameters
