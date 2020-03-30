@@ -13,10 +13,6 @@ var zoom = Drupal.settings.zoom;
 var center_lat = Drupal.settings.center_lat;
 var center_lon = Drupal.settings.center_lon;
 
-console.log(zoom);
-console.log(center_lat);
-console.log(center_lon);
-
 var layer = {};
 
 // Base layer WMS
