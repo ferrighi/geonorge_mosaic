@@ -1,5 +1,0 @@
-name = Geonorge mosaic
-description = "Display geonorge mosaic"
-core = 7.x
-
-dependencies[] = libraries

@@ -1,0 +1,22 @@
+geonorge_mosaic:
+  version: 1.0
+  css:
+    component:
+      /libraries/openlayers-6.5.0/ol.css: {}
+      /libraries/ol-ext-3.1.17/dist/ol-ext.css: {}
+    theme:
+      css/geonorge_mosaic_style.css: {}
+  js:
+    /libraries/proj4js-2.6.3/dist/proj4.js: {}
+    /libraries/openlayers-6.5.0/ol.js: {}
+    /libraries/ol-ext-3.1.17/dist/ol-ext.js: {}
+    js/geonorge_mosaic.js: {}
+  dependencies:
+    - core/jquery
+    - jquery_ui/core
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.ajax
+    - core/drupal.dialog
+    - core/drupal.dialog.ajax

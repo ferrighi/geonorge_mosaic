@@ -1,0 +1,33 @@
+geonorge_mosaic:
+  path: '/services/geonorge/mosaic'
+  defaults:
+    _controller: '\Drupal\geonorge_mosaic\Controller\GeonorgeMosaicController::render'
+    _title: 'Geonorge Sentinel-2 Mosaic'
+  requirements:
+    _permission: 'access content'
+
+geonorge_mosaic.main:
+  path: '#'
+  defaults:
+    _title: 'Services'
+  requirements:
+    _permission: 'access content'
+
+geonorge_mosaic.admin_config_form:
+  path: '/admin/config/metno/geonorge_mosaic'
+  defaults:
+    _form: '\Drupal\geonorge_mosaic\Form\GeonorgeMosaicConfigurationForm'
+    _title: 'Geonorge Mosaic Configuration Form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+system.admin_config_metno:
+  path: '/admin/config/metno'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'METNO'
+    description: 'METNO Specific configuraton'
+  requirements:
+    _permission: 'administer site configuration'

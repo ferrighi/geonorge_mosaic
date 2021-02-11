@@ -1,0 +1,27 @@
+#Define menu links here
+geonorge_mosaic:
+  title: 'Geonorge Sentinel-2 Mosaic'
+  description: 'Geonorge Sentinel-2 Mosaic'
+  route_name: geonorge_mosaic
+  parent: mosaic.main
+  weight: 99
+
+geonorge_mosaic.admin_config_form:
+  title: 'Geonorge mosaic configuration'
+  description: 'Configure Geonorge Mosaic'
+  route_name: geonorge_mosaic.admin_config_form
+  parent: metno.group.admin
+  weight: 99
+
+mosaic_geonorge.main:
+  title: 'Services'
+  route_name: geonorge_mosaic.main
+  description: "METNO Services"
+  menu_name: main
+
+metno.group.admin:
+  title: 'METNO'
+  route_name: system.admin_config_metno
+  parent: system.admin_config
+  description: 'METNO Configuration'
+  weight: -999
