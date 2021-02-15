@@ -6,7 +6,7 @@ geonorge_mosaic:
   requirements:
     _permission: 'access content'
 
-geonorge_mosaic.main:
+metsis.services:
   path: '#'
   defaults:
     _title: 'Services'

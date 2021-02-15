@@ -116,7 +116,7 @@ console.log("Start of geonorge_mosaic map script:");
           openInLayerSwitcher: false,
           source: new ol.source.TileWMS({
             projection: "EPSG:25833",
-            url: "http://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
             params: {
               'LAYERS': 'mosaikk,rutenett',
               'TRANSPARENT': 'true',
