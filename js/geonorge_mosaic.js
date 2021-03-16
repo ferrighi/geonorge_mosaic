@@ -394,7 +394,7 @@ console.log("Start of geonorge_mosaic map script:");
           //layer['fylk'].getSource().set('projection', prj);
           //layer['riks'].getSource().set('projection', prj);
           //map.getView().set('projection', prj);
-
+          map.getView().setZoom(map.getView().getZoom());
         });
 
         console.log("End of geonorge mosaic script");
