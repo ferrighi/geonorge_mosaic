@@ -3,7 +3,7 @@ geonorge_mosaic:
   title: 'Geonorge Sentinel-2 Mosaic'
   description: 'Geonorge Sentinel-2 Mosaic'
   route_name: geonorge_mosaic
-  parent: mosaic.main
+  parent: metsis.services
   weight: 99
 
 geonorge_mosaic.admin_config_form:
@@ -13,11 +13,11 @@ geonorge_mosaic.admin_config_form:
   parent: metno.group.admin
   weight: 99
 
-#mosaic_geonorge.main:
-#  title: 'Services'
-#  route_name: geonorge_mosaic.main
-#  description: "METNO Services"
-#  menu_name: main
+metsis.services:
+  title: 'Services'
+  route_name: metsis.services
+  description: "METSIS Services"
+  menu_name: main
 
 metno.group.admin:
   title: 'METNO'

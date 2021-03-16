@@ -66,7 +66,12 @@ class GeonorgeMosaicConfigurationForm extends ConfigFormBase {
       '#default_value' => $config->get('center_lat'),
     );
 
-
+    $form['helptext'] = [
+      '#type'          => 'text_format',
+      '#title'         => $this->t('Help markup text'),
+      '#format'        => $config->get('helptext')['format'],
+      '#default_value' => $config->get('helptext')['value'],
+    ];
 
 
     return parent::buildForm($form, $form_state);
@@ -96,7 +101,7 @@ class GeonorgeMosaicConfigurationForm extends ConfigFormBase {
       ->set('zoom_level', $values['zoom_level'])
       ->set('center_lon', $values['center_lon'])
       ->set('center_lat', $values['center_lat'])
-
+      ->set('helptext', $values['helptext'])
       ->save();
     parent::submitForm($form, $form_state);
   }

@@ -15,7 +15,7 @@ geonorge_mosaic.admin_config_form:
 
 metsis.services:
   title: 'Services'
-  route_name: mosaic.main
+  route_name: metsis.services
   description: "METSIS Services"
   menu_name: main
 

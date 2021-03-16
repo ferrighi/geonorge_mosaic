@@ -19,6 +19,7 @@ class GeonorgeMosaicController extends ControllerBase {
         $zoom_level = $config->get('zoom_level');
         $center_lat = $config->get('center_lat');
         $center_lon = $config->get('center_lon');
+        $helptext = Markup::create($config->get('helptext')['value']);
 
         \Drupal::logger('geonorge_mosaic')->debug("Zoom level: " . $zoom_level);
         \Drupal::logger('geonorge_mosaic')->debug("Center latitude: " . $center_lat);
@@ -50,6 +51,7 @@ class GeonorgeMosaicController extends ControllerBase {
         return [
             '#type' => 'container',
             '#theme' => 'geonorge_mosaic-template',
+            '#helptext' => $helptext,
             '#attached' => [
               'library' => [
                 'geonorge_mosaic/geonorge_mosaic',

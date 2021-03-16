@@ -104,10 +104,17 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('w3-container node__content block-geonorge-mosaic') }}>
+{{ helptext }}
 
-  <p>The <a href="https://www.kartverket.no/en/About-The-Norwegian-Mapping-Authority/The-Norwegian-Mapping-Authority/">Norwegian Mapping Authority</a> (Kartverket) has produced a cloud free national mosaic from <a href="https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2">Copernicus Sentinel-2 Level-2A</a> data which has free access and is openly available. The dataset is found <a href="https://kartkatalog.geonorge.no/metadata/587509c1-c022-4d81-8a15-b59b3cc6d8f0">here</a>. The mosaic is composed of Sentinel-2 data from June 30 to July 31, 2018. The mosaic consists of the frequency bands B2 to B8, B8A, B11, and B12. The data type is unsigned integer 16. Ancillary vector data is included yielding the dates for the individual tiles.</p>
-
-
+<div id="projectionsDiv" class="w3-container w3-border">
+ <span><strong>Projection: </strong></span><select id="projID">
+ <option selected="selected" value="EPSG:32661">EPSG:32661</option>
+ <option value="EPSG:32632">EPSG:32632</option>
+ <option value="EPSG:32633">EPSG:32633</option>
+ <option value="EPSG:32634">EPSG:32634</option>
+ <option value="EPSG:32635">EPSG:32635</option>
+</select>
+</div>
 
     <div id="map" class="map">
     {{ attach_library('geonorge_mosaic/geonorge_mosaic') }}

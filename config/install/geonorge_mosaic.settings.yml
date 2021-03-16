@@ -1,3 +1,7 @@
 zoom_level: 5
 center_lon: 12
 center_lat: 65
+langcode: en
+helptext:
+  value: '<p>The <a href="https://www.kartverket.no/en/About-The-Norwegian-Mapping-Authority/The-Norwegian-Mapping-Authority/" class="ext" data-extlink="" rel="noreferrer"><span class="fa-ext extlink"><span class="fa fa-external-link" aria-label="(link is external)"></span></span>Norwegian Mapping Authority</a> (Kartverket) has produced a cloud free national mosaic from <a href="https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2" class="ext" data-extlink="" rel="noreferrer"><span class="fa-ext extlink"><span class="fa fa-external-link" aria-label="(link is external)"></span></span>Copernicus Sentinel-2 Level-2A</a> data which has free access and is openly available. The dataset is found <a href="https://kartkatalog.geonorge.no/metadata/587509c1-c022-4d81-8a15-b59b3cc6d8f0" class="ext" data-extlink="" rel="noreferrer"><span class="fa-ext extlink"><span class="fa fa-external-link" aria-label="(link is external)"></span></span>here</a>. The mosaic is composed of Sentinel-2 data from June 30 to July 31, 2018. The mosaic consists of the frequency bands B2 to B8, B8A, B11, and B12. The data type is unsigned integer 16. Ancillary vector data is included yielding the dates for the individual tiles.</p>'
+  format: 'basic_html'

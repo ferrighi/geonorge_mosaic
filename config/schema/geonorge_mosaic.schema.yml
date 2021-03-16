@@ -1,0 +1,10 @@
+geonorge_mosaic.settings:
+  type: config_object
+  label: 'Geonorge mosaic configuration'
+  mapping:
+    helptext:
+      label: 'Infotext to be desplayed above the map'
+      type: text_format
+    language:
+      type: string
+      label: 'Language code'

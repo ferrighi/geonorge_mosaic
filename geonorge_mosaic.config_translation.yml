@@ -1,0 +1,5 @@
+ geonorge_mosaic.settings:
+  title: 'Geonorge mosaic  configuration'
+  base_route_name: geonorge_mosaic.admin_config_form
+  names:
+    - geonorge_mosaic.settings

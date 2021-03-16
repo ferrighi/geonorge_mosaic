@@ -23,7 +23,10 @@ function geonorge_mosaic_theme( $existing, $type, $theme, $path ){
         'geonorge_mosaic-template' => [
             'render element' => 'container', // To render a simple container element
             'template' => 'geonorge_mosaic', // My template file name
-          
+            'variables' => [
+              'helptext' => '',
+            ]
+
         ],
     ];
 }
