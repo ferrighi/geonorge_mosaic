@@ -79,7 +79,7 @@ class GeonorgeMosaicController extends ControllerBase {
    // Get current language code
    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
    switch($language) {
-     case 'no':
+     case 'nb':
        $title = 'Geonorge Sentinel-2 Mosaikk';
        break;
      case 'en':
