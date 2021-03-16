@@ -72,4 +72,22 @@ class GeonorgeMosaicController extends ControllerBase {
         ];
     }
 
+    /**
+  * Returns a page title.
+  */
+ public function getTitle() {
+   // Get current language code
+   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+   switch($language) {
+     case 'no':
+       $title = 'Geonorge Sentinel-2 Mosaikk';
+       break;
+     case 'en':
+       $title = 'Geonorge Sentinel-2 Mosaic';
+       break;
+   }
+   return  $title;
+ }
+
+
 }

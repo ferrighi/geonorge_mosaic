@@ -2,7 +2,7 @@ geonorge_mosaic:
   path: '/services/geonorge/mosaic'
   defaults:
     _controller: '\Drupal\geonorge_mosaic\Controller\GeonorgeMosaicController::render'
-    _title: 'Geonorge Sentinel-2 Mosaic'
+    _title_callback: '\Drupal\geonorge_mosaic\Controller\GeonorgeMosaicController::getTitle'
   requirements:
     _permission: 'access content'
 
