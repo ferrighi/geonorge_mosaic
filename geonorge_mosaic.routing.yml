@@ -31,3 +31,12 @@ system.admin_config_metno:
     description: 'METNO Specific configuraton'
   requirements:
     _permission: 'administer site configuration'
+
+system.admin_config_metsis:
+  path: '/admin/config/metsis'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'METSIS'
+    description: 'METSIS Specific configuraton'
+  requirements:
+    _permission: 'administer site configuration'

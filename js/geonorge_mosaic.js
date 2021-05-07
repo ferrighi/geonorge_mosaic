@@ -143,7 +143,7 @@ console.log("Start of geonorge_mosaic map script:");
 
         var geonorgeMosaicLayer = new ol.layer.Tile({
           title: 'Mosaikk',
-          openInLayerSwitcher: false,
+          //openInLayerSwitcher: false,
           source: new ol.source.TileWMS({
             //projection: "EPSG:25833",
             //projection: prj,
@@ -160,7 +160,8 @@ console.log("Start of geonorge_mosaic map script:");
 
         var geonorgeRutenettLayer = new ol.layer.Tile({
           title: 'Rutenett',
-          openInLayerSwitcher: false,
+          //openInLayerSwitcher: false,
+          visible: false,
           source: new ol.source.TileWMS({
             //projection: "EPSG:25833",
             //projection: prj,
@@ -365,7 +366,7 @@ console.log("Start of geonorge_mosaic map script:");
         $('#projID').on('change', function() {
           var newProj = ol.proj.get($(this).val());
           var newProjExtent = newProj.getExtent();
-          console.log('Chosen projection:' + newProj.getCode())
+          console.log('Chosen projection:' + newProj.getCode());
           console.log("Updating projections on layers and view");
           var newView = new ol.View({
             projection: newProj,
@@ -394,6 +395,9 @@ console.log("Start of geonorge_mosaic map script:");
           //layer['fylk'].getSource().set('projection', prj);
           //layer['riks'].getSource().set('projection', prj);
           //map.getView().set('projection', prj);
+          geonorgeMosaicLayerGroup.getLayers().forEach( function (el, idx, arr) {
+            el.getSource().refresh();
+          });
           map.getView().setZoom(map.getView().getZoom());
         });
 

@@ -3,5 +3,5 @@ description: 'Display geonorge mosaic'
 type: module
 core: 8.x
 version: 1.x
-package: METNO
+package: METSIS
 dependencies:

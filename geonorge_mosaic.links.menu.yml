@@ -10,7 +10,7 @@ geonorge_mosaic.admin_config_form:
   title: 'Geonorge mosaic configuration'
   description: 'Configure Geonorge Mosaic'
   route_name: geonorge_mosaic.admin_config_form
-  parent: metno.group.admin
+  parent: metsis.group.admin
   weight: 99
 
 metsis.services:
@@ -25,4 +25,11 @@ metno.group.admin:
   route_name: system.admin_config_metno
   parent: system.admin_config
   description: 'METNO Configuration'
+  weight: -999
+
+metsis.group.admin:
+  title: 'METSIS'
+  route_name: system.admin_config_metsis
+  parent: system.admin_config
+  description: 'METSIS Configuration'
   weight: -999
