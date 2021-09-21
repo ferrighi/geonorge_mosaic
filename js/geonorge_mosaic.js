@@ -10,7 +10,7 @@ console.log("Start of geonorge_mosaic map script:");
         /** Start reading drupalSettings sent from the mapblock build */
         console.log('Initializing GEONORGE MOSAIC Map...');
         //Regiter projections
-        //proj4.defs('EPSG:32661','+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs');
+        proj4.defs('EPSG:32661','+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32632','+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32633','+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32634','+proj=utm +zone=34 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
@@ -18,8 +18,8 @@ console.log("Start of geonorge_mosaic map script:");
 
         ol.proj.proj4.register(proj4);
 
-        //var proj32661 = ol.proj.get('EPSG:32661');
-        //proj32661.setExtent([-4e+06, -6e+06, 8e+06, 8e+06]);
+        var proj32661 = ol.proj.get('EPSG:32661');
+        proj32661.setExtent([-4e+06, -6e+06, 8e+06, 8e+06]);
 
         var proj32632 = ol.proj.get('EPSG:32632');
         proj32632.setExtent([-477086, 5.53927e+06, 2.06741e+06, 8.90982e+06]);
@@ -38,8 +38,8 @@ console.log("Start of geonorge_mosaic map script:");
 
 
         //Default proejection
-        var prj = proj32632;
-        $('#projID').val("EPSG:32632" );
+        var prj = proj32661;
+        $('#projID').val("EPSG:32661" );
         //var prj = proj32632;
         //$('#projID').val(32632);
 
@@ -148,9 +148,9 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: "EPSG:25833",
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: "https://wms.geonorge.no/skwms1/wms.nib-prosjekter",
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
             params: {
-              'LAYERS': 'Sentinel-2 Skyfri mosaikk 2020',
+              'LAYERS': '2020',
               'TRANSPARENT': 'true',
               'FORMAT': 'image/png',
               'VERSION': '1.3.0',
@@ -167,9 +167,9 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: prj,
             crossOrigin: 'anonymous',
             //url: "https://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
-            url: "https://wms.geonorge.no/skwms1/wms.nib-prosjekter",
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
             params: {
-              'LAYERS': 'Sentinel-2 Skyfri mosaikk 2019',
+              'LAYERS': '2019',
               'TRANSPARENT': 'true',
               'FORMAT': 'image/png',
               'VERSION': '1.3.0',
@@ -186,9 +186,9 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: prj,
             crossOrigin: 'anonymous',
             //url: "https://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
-            url: "https://wms.geonorge.no/skwms1/wms.nib-prosjekter",
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
             params: {
-              'LAYERS': 'Sentinel-2 Skyfri mosaikk 2018',
+              'LAYERS': '2018',
               'TRANSPARENT': 'true',
               'FORMAT': 'image/png',
               'VERSION': '1.3.0',
@@ -414,7 +414,7 @@ console.log("Start of geonorge_mosaic map script:");
             extent: newProjExtent || undefined,
           });
 
-          if (newProj.getCode() === 'EPSG:32632') {
+          if (newProj.getCode() === 'EPSG:32661') {
             newView = new ol.View({
               zoom: zoom,
               minZoom: 1,
