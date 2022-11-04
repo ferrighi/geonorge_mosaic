@@ -14,7 +14,7 @@ geonorge_mosaic:
   dependencies:
     - core/jquery
     - jquery_ui/core
-    - core/jquery.once
+    - core/once
     - core/drupal
     - core/drupalSettings
     - core/drupal.ajax
