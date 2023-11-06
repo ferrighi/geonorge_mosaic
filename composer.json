@@ -1,0 +1,10 @@
+{
+    "name": "metno/geonorge_mosaic",
+    "type": "drupal-custom-module",
+    "description": "Geonorge Mosaic from Sentinel-2 images.",
+    "license": "GPL-3.0-or-later",
+    "scripts": {
+        "sniff": "phpcs --colors -n --standard=Drupal --extensions=php,module,yml src",
+        "snifferfix": "phpcbf --colors -n --standard=Drupal --extensions=php,module,yml src"
+    }
+}

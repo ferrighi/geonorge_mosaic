@@ -1,11 +1,14 @@
 console.log("Start of geonorge_mosaic map script:");
-(function($, Drupal, drupalSettings) {
+(function($, Drupal, drupalSettings, once) {
 
   console.log("Attaching geonorge_mosaic script to drupal behaviours:");
   /** Attach the metsis map to drupal behaviours function */
   Drupal.behaviors.geonorgeMosaic = {
-    attach: function(context, drupalSettings) {
-      $('#map', context).once().each(function() {
+    attach: function(context) {
+      const mapEl = $(once('#map', '[data-geonorge-mosaic]', context));
+      mapEl.each(function () {
+
+        //$('#map', context).once().each(function() {
         //$('#map-res', context).once('metsisSearchBlock').each(function() {
         /** Start reading drupalSettings sent from the mapblock build */
         console.log('Initializing GEONORGE MOSAIC Map...');
@@ -140,9 +143,43 @@ console.log("Start of geonorge_mosaic map script:");
             }
           })
         });
-
         var geonorgeMosaicLayer = new ol.layer.Tile({
+          title: 'Mosaikk 2022',
+          //openInLayerSwitcher: false,
+          source: new ol.source.TileWMS({
+            //projection: "EPSG:25833",
+            //projection: prj,
+            crossOrigin: 'anonymous',
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            params: {
+              'LAYERS': '2022',
+              'TRANSPARENT': 'true',
+              'FORMAT': 'image/png',
+              'VERSION': '1.3.0',
+            },
+          })
+        });
+        var geonorgeMosaicLayer2021 = new ol.layer.Tile({
+          title: 'Mosaikk 2021',
+          visible: false,
+          //openInLayerSwitcher: false,
+          source: new ol.source.TileWMS({
+            //projection: "EPSG:25833",
+            //projection: prj,
+            crossOrigin: 'anonymous',
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            params: {
+              'LAYERS': '2021',
+              'TRANSPARENT': 'true',
+              'FORMAT': 'image/png',
+              'VERSION': '1.3.0',
+            },
+          })
+        });
+
+        var geonorgeMosaicLayer2020 = new ol.layer.Tile({
           title: 'Mosaikk 2020',
+          visible: false,
           //openInLayerSwitcher: false,
           source: new ol.source.TileWMS({
             //projection: "EPSG:25833",
@@ -218,7 +255,11 @@ console.log("Start of geonorge_mosaic map script:");
           title: 'Geonorge Mosaic',
           openInLayerSwitcher: true,
           layers: [
-            geonorgeMosaicLayer2018, geonorgeMosaicLayer2019, geonorgeMosaicLayer //, geonorgeRutenettLayer
+            geonorgeMosaicLayer2018,
+            geonorgeMosaicLayer2019,
+            geonorgeMosaicLayer2020,
+            geonorgeMosaicLayer2021,
+            geonorgeMosaicLayer //, geonorgeRutenettLayer
           ],
         });
 
@@ -443,4 +484,4 @@ console.log("Start of geonorge_mosaic map script:");
       });
     },
   };
-})(jQuery, Drupal, drupalSettings);
+})(jQuery, Drupal, drupalSettings, once);

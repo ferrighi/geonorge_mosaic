@@ -2,6 +2,6 @@ name: 'Geonorge Mosaic'
 description: 'Display geonorge mosaic'
 type: module
 core_version_requirement: ^8.8 || ^9 || ^10
-version: 1.0.1
+version: 2.0.0
 package: METSIS
 dependencies:

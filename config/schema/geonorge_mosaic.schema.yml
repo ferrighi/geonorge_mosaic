@@ -5,6 +5,15 @@ geonorge_mosaic.settings:
     helptext:
       label: 'Infotext to be desplayed above the map'
       type: text_format
-    language:
+    lancode:
       type: string
       label: 'Language code'
+    lat:
+      type: int
+      label: 'Initial centre latitude for map'
+    lon:
+      type: int
+      label: 'Initial centre longitude for map'
+    zoom_level:
+      type: int
+      label: 'Initial zoom level for map'
