@@ -144,7 +144,24 @@ console.log("Start of geonorge_mosaic map script:");
           })
         });
         var geonorgeMosaicLayer = new ol.layer.Tile({
+          title: 'Mosaikk 2023',
+          //openInLayerSwitcher: false,
+          source: new ol.source.TileWMS({
+            //projection: "EPSG:25833",
+            //projection: prj,
+            crossOrigin: 'anonymous',
+            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            params: {
+              'LAYERS': '2023',
+              'TRANSPARENT': 'true',
+              'FORMAT': 'image/png',
+              'VERSION': '1.3.0',
+            },
+          })
+        });
+        var geonorgeMosaicLayer2022 = new ol.layer.Tile({
           title: 'Mosaikk 2022',
+          visible: false,
           //openInLayerSwitcher: false,
           source: new ol.source.TileWMS({
             //projection: "EPSG:25833",
@@ -259,6 +276,7 @@ console.log("Start of geonorge_mosaic map script:");
             geonorgeMosaicLayer2019,
             geonorgeMosaicLayer2020,
             geonorgeMosaicLayer2021,
+            geonorgeMosaicLayer2022,
             geonorgeMosaicLayer //, geonorgeRutenettLayer
           ],
         });
