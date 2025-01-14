@@ -150,7 +150,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: "EPSG:25833",
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2023',
               'TRANSPARENT': 'true',
@@ -167,7 +167,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: "EPSG:25833",
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2022',
               'TRANSPARENT': 'true',
@@ -184,7 +184,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: "EPSG:25833",
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2021',
               'TRANSPARENT': 'true',
@@ -202,7 +202,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: "EPSG:25833",
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2020',
               'TRANSPARENT': 'true',
@@ -221,7 +221,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: prj,
             crossOrigin: 'anonymous',
             //url: "https://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2019',
               'TRANSPARENT': 'true',
@@ -240,7 +240,7 @@ console.log("Start of geonorge_mosaic map script:");
             //projection: prj,
             crossOrigin: 'anonymous',
             //url: "https://wms.geonorge.no/skwms1/wms.sentinel2mosaikk",
-            url: "https://openwms.statkart.no/skwms1/wms.sentinel2",
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
             params: {
               'LAYERS': '2018',
               'TRANSPARENT': 'true',
@@ -287,7 +287,7 @@ console.log("Start of geonorge_mosaic map script:");
           crossOrigin: 'anonymous',
           source: new ol.source.TileWMS({
             //projection: prj,
-            url: 'https://openwms.statkart.no/skwms1/wms.vegnett',
+            url: 'https://wms.geonorge.no/skwms1/wms.vegnett2',
             params: {
               'LAYERS': 'europaveg',
               'TRANSPARENT': 'true',
@@ -304,7 +304,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.vegnett',
+            url: 'https://wms.geonorge.no/skwms1/wms.vegnett2',
             params: {
               'LAYERS': 'fylkesveg',
               'TRANSPARENT': 'true',
@@ -321,7 +321,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.vegnett',
+            url: 'https://wms.geonorge.no/skwms1/wms.vegnett2',
             params: {
               'LAYERS': 'riksveg',
               'TRANSPARENT': 'true',
@@ -347,7 +347,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.grunnkretser',
+            url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Territorialgrense',
               'TRANSPARENT': 'true',
@@ -364,7 +364,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.grunnkretser',
+            url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Riksgrense',
               'TRANSPARENT': 'true',
@@ -380,7 +380,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.grunnkretser',
+            url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Fylker',
               'TRANSPARENT': 'true',
@@ -397,7 +397,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
-            url: 'https://openwms.statkart.no/skwms1/wms.grunnkretser',
+            url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Kommuner',
               'TRANSPARENT': 'true',
