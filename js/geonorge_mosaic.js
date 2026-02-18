@@ -19,8 +19,12 @@ console.log("Start of geonorge_mosaic map script:");
         proj4.defs('EPSG:32633','+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32634','+proj=utm +zone=34 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32635','+proj=utm +zone=35 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
+	proj4.defs("EPSG:4258","+proj=longlat +ellps=GRS80 +no_defs +type=crs");
 
         ol.proj.proj4.register(proj4);
+
+        var proj4258 = ol.proj.get('EPSG:4258');
+        proj4258.setExtent([-16.1, 33.26, 38.01, 84.73]);
 
         var proj32661 = ol.proj.get('EPSG:32661');
         proj32661.setExtent([-4e+06, -6e+06, 8e+06, 8e+06]);
@@ -383,6 +387,7 @@ console.log("Start of geonorge_mosaic map script:");
           source: new ol.source.TileWMS({
             //projection: prj,
             crossOrigin: 'anonymous',
+            projection: 'EPSG:4258',
             url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Territorialgrense',
@@ -399,6 +404,7 @@ console.log("Start of geonorge_mosaic map script:");
           visible: true,
           source: new ol.source.TileWMS({
             //projection: prj,
+            projection: 'EPSG:4258',
             crossOrigin: 'anonymous',
             url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
@@ -414,12 +420,13 @@ console.log("Start of geonorge_mosaic map script:");
           title: 'Fylkesgrenser',
           visible: false,
           source: new ol.source.TileWMS({
-            //projection: prj,
+            projection: 'EPSG:4258',
             crossOrigin: 'anonymous',
             url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
               'LAYERS': 'Fylker',
-              'TRANSPARENT': 'true',
+              'TRANSPARENT': 'false',
+              'STYLE': 'default',
               'VERSION': '1.3.0',
               'FORMAT': 'image/png'
             },
@@ -432,6 +439,7 @@ console.log("Start of geonorge_mosaic map script:");
           visible: false,
           source: new ol.source.TileWMS({
             //projection: prj,
+            projection: 'EPSG:4258',
             crossOrigin: 'anonymous',
             url: 'https://wms.geonorge.no/skwms1/wms.grunnkretser',
             params: {
@@ -443,7 +451,7 @@ console.log("Start of geonorge_mosaic map script:");
             //crossOrigin: 'anonymous'
           })
         });
-       /*
+
         const borderLayerGroup = new ol.layer.Group({
           title: 'Grenser',
           visible: false,
@@ -452,7 +460,7 @@ console.log("Start of geonorge_mosaic map script:");
             territorialGrenseLayer, riksGrenseLayer, fylkesGrenserLayer, kommuneGrenserLayer
           ],
         });
-        */
+
         // build up the map
         var centerLonLat1 = [center_lon, center_lat];
         var centerTrans1 = ol.proj.transform(centerLonLat1, "EPSG:4326", prj);
@@ -466,7 +474,7 @@ console.log("Start of geonorge_mosaic map script:");
           target: 'map',
           layers: [baseLayerGroup,
             geonorgeMosaicLayerGroup,
-            //borderLayerGroup,
+            // borderLayerGroup,
             vegLayerGroup
           ],
           view: new ol.View({
