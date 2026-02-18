@@ -1,5 +1,5 @@
 geonorge_mosaic:
-  version: 1.2
+  version: 1.3
   css:
     component:
       /libraries/openlayers-6.5.0/ol.css: {minified: true }
