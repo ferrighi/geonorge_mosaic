@@ -13,7 +13,8 @@ console.log("Start of geonorge_mosaic map script:");
         /** Start reading drupalSettings sent from the mapblock build */
         console.log('Initializing GEONORGE MOSAIC Map...');
         //Regiter projections
-        proj4.defs('EPSG:32661','+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs');
+        //proj4.defs('EPSG:32661','+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs');
+        proj4.defs("EPSG:32661", 'PROJCS["WGS 84 / UPS North (N,E)",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Polar_Stereographic"],PARAMETER["latitude_of_origin",90],PARAMETER["central_meridian",0],PARAMETER["scale_factor",0.994],PARAMETER["false_easting",2000000],PARAMETER["false_northing",2000000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Northing",SOUTH],AXIS["Easting",SOUTH],AUTHORITY["EPSG","32661"]]');
         proj4.defs('EPSG:32632','+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32633','+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
         proj4.defs('EPSG:32634','+proj=utm +zone=34 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
@@ -144,7 +145,41 @@ console.log("Start of geonorge_mosaic map script:");
           })
         });
         var geonorgeMosaicLayer = new ol.layer.Tile({
+          title: 'Mosaikk 2025',
+          //openInLayerSwitcher: false,
+          source: new ol.source.TileWMS({
+            //projection: "EPSG:25833",
+            //projection: prj,
+            crossOrigin: 'anonymous',
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
+            params: {
+              'LAYERS': '2025',
+              'TRANSPARENT': 'true',
+              'FORMAT': 'image/png',
+              'VERSION': '1.3.0',
+            },
+          })
+        });
+        var geonorgeMosaicLayer2024 = new ol.layer.Tile({
+          title: 'Mosaikk 2024',
+          visible: false,
+          //openInLayerSwitcher: false,
+          source: new ol.source.TileWMS({
+            //projection: "EPSG:25833",
+            //projection: prj,
+            crossOrigin: 'anonymous',
+            url: "https://wms.geonorge.no/skwms1/wms.sentinel2",
+            params: {
+              'LAYERS': '2024',
+              'TRANSPARENT': 'true',
+              'FORMAT': 'image/png',
+              'VERSION': '1.3.0',
+            },
+          })
+        });
+        var geonorgeMosaicLayer2023 = new ol.layer.Tile({
           title: 'Mosaikk 2023',
+          visible: false,
           //openInLayerSwitcher: false,
           source: new ol.source.TileWMS({
             //projection: "EPSG:25833",
@@ -277,6 +312,7 @@ console.log("Start of geonorge_mosaic map script:");
             geonorgeMosaicLayer2020,
             geonorgeMosaicLayer2021,
             geonorgeMosaicLayer2022,
+            geonorgeMosaicLayer2023,
             geonorgeMosaicLayer //, geonorgeRutenettLayer
           ],
         });
@@ -407,7 +443,7 @@ console.log("Start of geonorge_mosaic map script:");
             //crossOrigin: 'anonymous'
           })
         });
-
+       /*
         const borderLayerGroup = new ol.layer.Group({
           title: 'Grenser',
           visible: false,
@@ -416,7 +452,7 @@ console.log("Start of geonorge_mosaic map script:");
             territorialGrenseLayer, riksGrenseLayer, fylkesGrenserLayer, kommuneGrenserLayer
           ],
         });
-
+        */
         // build up the map
         var centerLonLat1 = [center_lon, center_lat];
         var centerTrans1 = ol.proj.transform(centerLonLat1, "EPSG:4326", prj);
@@ -430,7 +466,7 @@ console.log("Start of geonorge_mosaic map script:");
           target: 'map',
           layers: [baseLayerGroup,
             geonorgeMosaicLayerGroup,
-            borderLayerGroup,
+            //borderLayerGroup,
             vegLayerGroup
           ],
           view: new ol.View({
