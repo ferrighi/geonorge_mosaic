@@ -75,6 +75,7 @@ class GeonorgeMosaicController extends ControllerBase {
   public function getTitle() {
     // Get current language code.
     $language = $this->languageManager()->getCurrentLanguage()->getId();
+    $title = '';
     switch ($language) {
       case 'nb':
         $title = 'Geonorge Sentinel-2 Mosaikk';
