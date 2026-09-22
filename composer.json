@@ -6,5 +6,21 @@
     "scripts": {
         "sniff": "phpcs --colors -n --standard=Drupal --extensions=php,module,yml src",
         "snifferfix": "phpcbf --colors -n --standard=Drupal --extensions=php,module,yml src"
+    },
+  "authors": [
+        {
+            "name": "Lara Ferrighi",
+            "email": "laraf@met.no"
+        },
+        {
+            "name": "Magnar Martinsen",
+            "email": "magnarem@met.no"
+        }
+    ],
+    "require": {
+        "drupal/vite": "^1.5"
+    },
+    "require-dev": {
+        "drush/drush": "^13.0"
     }
 }

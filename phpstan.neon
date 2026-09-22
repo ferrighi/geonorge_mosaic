@@ -1,0 +1,27 @@
+# Configuration file for PHPStan static code checking, see https://phpstan.org.
+includes:
+  - phpstan-baseline.neon
+parameters:
+  level: 5
+  paths:
+    - %currentWorkingDirectory%
+  excludePaths:
+    - vendor/**
+    - web/modules/contrib/*
+    - web/modules/custom/*
+    - web/core/**
+    - web/themes/**
+    - web/sites/**
+    - web/*.php
+    - js/**/node_modules/**
+    - node_modules/**
+  fileExtensions:
+    - php
+    - module
+    - inc
+    - install
+    - test
+    - profile
+    - theme
+  reportUnmatchedIgnoredErrors: true
+  treatPhpDocTypesAsCertain: false

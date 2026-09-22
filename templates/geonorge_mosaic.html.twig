@@ -106,19 +106,28 @@
   <div{{ content_attributes.addClass('w3-container node__content block-geonorge-mosaic') }}>
 {{ helptext }}
 
-<div id="projectionsDiv" class="w3-container w3-border">
- <span><strong>Projection: </strong></span><select id="projID">
- <option selected="selected" value="EPSG:32661">EPSG:32661</option>
- <option value="EPSG:32632">EPSG:32632</option>
- <option value="EPSG:32633">EPSG:32633</option>
- <option value="EPSG:32634">EPSG:32634</option>
- <option value="EPSG:32635">EPSG:32635</option>
-</select>
-</div>
+<div data-geonorge-mosaic-app>
+  <div class="geonorge-mosaic-projection w3-container w3-border">
+    <label for="projID"><strong>{% trans %}Projection:{% endtrans %} </strong></label>
+    <select id="projID" data-geonorge-mosaic-projection>
+      <option selected="selected" value="EPSG:32661">EPSG:32661</option>
+      <option value="EPSG:32632">EPSG:32632</option>
+      <option value="EPSG:32633">EPSG:32633</option>
+      <option value="EPSG:32634">EPSG:32634</option>
+      <option value="EPSG:32635">EPSG:32635</option>
+    </select>
+  </div>
 
-    <div data-geonorge-mosaic id="map" class="map" width="100%" height="100%">
-    {# { attach_library('geonorge_mosaic/geonorge_mosaic') } #}
-    </div>
+  <div class="geonorge-mosaic-layout" data-geonorge-mosaic-layout>
+    <div data-geonorge-mosaic class="map"></div>
+    <aside class="geonorge-mosaic-layers" aria-label="{{ 'Mosaic year'|t }}">
+      <h2 class="geonorge-mosaic-layers__heading">
+        {% trans %}Mosaic year{% endtrans %}
+      </h2>
+      <div data-geonorge-mosaic-layer-switcher></div>
+    </aside>
+  </div>
+</div>
 
 </div>
 </article>
