@@ -4,7 +4,7 @@
     "name": "proj4"
   },
   "src/main.js": {
-    "file": "assets/GeoNorgeMosaic-vlH6YkeK.js",
+    "file": "assets/GeoNorgeMosaic-D-vlJLhh.js",
     "name": "GeoNorgeMosaic",
     "src": "src/main.js",
     "isEntry": true,
@@ -12,7 +12,7 @@
       "_proj4-DQycVhIU.js"
     ],
     "css": [
-      "assets/GeoNorgeMosaic-CUEBYrzI.css"
+      "assets/GeoNorgeMosaic-TIAlen_m.css"
     ]
   }
 }
