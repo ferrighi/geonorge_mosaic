@@ -1,3 +1,20 @@
+.block-geonorge-mosaic .geonorge-mosaic-projection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.block-geonorge-mosaic .geonorge-mosaic-projection label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.block-geonorge-mosaic .geonorge-mosaic-projection select {
+  width: auto;
+}
+
 .block-geonorge-mosaic .geonorge-mosaic-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem);
